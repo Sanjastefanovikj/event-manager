@@ -1,0 +1,68 @@
+/* Container styling */
+.event-list-container {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Heading styling */
+  .event-list-container h2 {
+    margin-top: 0;
+    text-align: center;
+  }
+  
+  /* List styling */
+  .event-list-container ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  /* List item styling */
+  .event-list-container li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Button styling */
+  .event-list-container button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .event-list-container button.edit {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .event-list-container button.delete {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  /* Hover effects for buttons */
+  .event-list-container button.edit:hover {
+    background-color: #45a049;
+  }
+  
+  .event-list-container button.delete:hover {
+    background-color: #d32f2f;
+  }
+  
+  /* Link styling */
+  .event-list-container a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .event-list-container a:hover {
+    text-decoration: underline;
+  }
+  

@@ -1,0 +1,15 @@
+<div class="event-form-container">
+    <form (ngSubmit)="onSubmit()">
+      <label for="name">Name:</label>
+      <input id="name" [(ngModel)]="event.name" name="name" required>
+      
+      <label for="date">Date:</label>
+      <input id="date" [(ngModel)]="event.date" name="date" required>
+      
+      <label for="location">Location:</label>
+      <input id="location" [(ngModel)]="event.location" name="location" required>
+      
+      <button type="submit">Save</button>
+    </form>
+  </div>
+  

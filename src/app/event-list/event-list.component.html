@@ -1,0 +1,18 @@
+<div class="event-list-container">
+    <h2>Event List</h2>
+    <button (click)="addEvent()">Add New Event</button>
+    <app-event-search (search)="searchEvents($event)"></app-event-search>
+    <ul>
+      <li *ngFor="let event of filteredEvents">
+        <span>{{ event.name }} - {{ event.date }} - {{ event.location }}</span>
+        <button class="edit" (click)="editEvent(event)">Edit</button>
+        <button class="delete" (click)="deleteEvent(event.id)">Delete</button>
+      </li>
+    </ul>
+    <app-event-form 
+      *ngIf="selectedEvent" 
+      [event]="selectedEvent" 
+      (save)="saveEvent()"
+    ></app-event-form>
+  </div>
+  
