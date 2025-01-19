@@ -1,4 +1,9 @@
 <div style="text-align:center">
   <h1>Welcome to {{ title }}!</h1>
+  <nav>
+    <a routerLink="/events">Event List</a>
+    <a routerLink="/event-form">Event Form</a>
+    <a routerLink="/event-search">Event Search</a>
+  </nav>
 </div>
-<app-event-list></app-event-list>
+<router-outlet></router-outlet>

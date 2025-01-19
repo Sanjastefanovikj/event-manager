@@ -1,33 +1,38 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { Event } from '../models/event.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EventService {
-  private events: Event[] = [
-    { id: 1, name: 'Angular Conference', date: '2024-10-10', location: 'New York' },
-    { id: 2, name: 'React Summit', date: '2024-11-15', location: 'San Francisco' }
-  ];
+  private apiUrl = 'http://localhost:8080/api/1/event'; // API endpoint for events
 
-  getEvents(): Observable<Event[]> {
-    return of(this.events);
+  constructor(private http: HttpClient) {}
+
+  // Fetch all events from the API
+  getAllEvents(): Observable<Event[]> {
+    return this.http.get<Event[]>(this.apiUrl);
   }
 
-  addEvent(event: Event): void {
-    this.events.push(event);
+  // Fetch a specific event by ID
+  getEventById(event_id: number): Observable<Event> {
+    return this.http.get<Event>(`${this.apiUrl}/${event_id}`);
   }
 
-  updateEvent(updatedEvent: Event): void {
-    const index = this.events.findIndex(event => event.id === updatedEvent.id);
-    if (index !== -1) {
-      this.events[index] = updatedEvent;
-    }
+  // Update an existing event
+  updateEvent(event_id: number, event: Event): Observable<Event> {
+    return this.http.put<Event>(`${this.apiUrl}/${event_id}`, event);
   }
 
-  deleteEvent(id: number): void {
-    this.events = this.events.filter(event => event.id !== id);
+  // Delete an event by ID
+  deleteEvent(event_id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${event_id}`);
+  }
+
+  // Create a new event
+  saveEvent(event: Event): Observable<Event> {
+    return this.http.post<Event>(this.apiUrl, event);
   }
 }
-

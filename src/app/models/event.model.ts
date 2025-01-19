@@ -1,7 +1,7 @@
 export interface Event {
-    id: number;
+    event_id: number; 
     name: string;
-    date: string;
-    location: string;
-  }
-  
+    venue: string;
+    time: number; 
+    date: string; 
+}
